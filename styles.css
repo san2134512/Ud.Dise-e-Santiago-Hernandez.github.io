@@ -1,196 +1,377 @@
-/* =============================================
-   IMPORTAR TIPOGRAFÍAS DESDE GOOGLE FONTS
-   Roboto Slab → h1 y h2
-   Lato → párrafos y texto general
-   ============================================= */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+/* ============================================================
+   HOJA DE ESTILOS EXTERNA — estilos.css
+   Portfolio M_ICA · Paleta: negro #111111 + verde #6bf06b
+   REGLA IMPORTANTE: @import DEBE ser la primera línea del
+   archivo CSS (antes de cualquier regla). Si se pone después
+   de :root{} u otro bloque, el navegador lo ignora y las
+   fuentes no cargan. Por eso va aquí, al principio.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;600;700&family=Lato:wght@300;400;500;700&display=swap');
+/* @import trae las fuentes desde internet.
+   Josefin Sans: para títulos (300 light, 600 semibold, 700 bold)
+   Lato: para párrafos (300 light, 400 regular, 500 medium, 700 bold) */
 
 
-/* =============================================
-   BODY — base general
-   ============================================= */
+/* ------------------------------------------------------------
+   VARIABLES CSS — :root
+   :root apunta al elemento raíz (la etiqueta <html>).
+   Las variables se declaran con -- y se usan con var(--nombre).
+   Cambiar un valor aquí lo actualiza en TODA la hoja.
+   ------------------------------------------------------------ */
+:root {
+    --negro:        #111111;                    /* Fondo principal */
+    --negro-card:   #1c1c1c;                    /* Fondo de tarjetas y div contenedor */
+    --negro-borde:  #2e2e2e;                    /* Bordes sutiles sobre negro */
+    --verde:        #6bf06b;                    /* Verde neón — acento del blog M_ICA */
+    --verde-dark:   #4fd44f;                    /* Verde más oscuro para hover */
+    --verde-suave:  rgba(107, 240, 107, 0.08);  /* Verde casi transparente */
+    --blanco:       #ffffff;                    /* Texto principal */
+    --blanco-50:    rgba(255, 255, 255, 0.55);  /* Texto suave / secundario */
+    --fuente-t:     'Josefin Sans', sans-serif; /* Fuente para títulos */
+    --fuente-p:     'Lato', sans-serif;         /* Fuente para párrafos */
+    --radio:        4px;                        /* Redondeo de bordes */
+}
+
+
+/* ------------------------------------------------------------
+   RESET — elimina márgenes y paddings del navegador
+   * selecciona TODOS los elementos de la página.
+   box-sizing: border-box hace que padding y borde se
+   incluyan dentro del ancho declarado (evita desbordamientos).
+   ------------------------------------------------------------ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ------------------------------------------------------------
+   BODY — base de la página
+   Fondo negro, texto blanco: "dark mode" o modo oscuro.
+   ------------------------------------------------------------ */
 body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.7;
-  color: #3a3b38;
-  background-color: #ffffff;
-  margin: 0;
-  padding: 0;
+    font-family: var(--fuente-p);   /* Lato para todo el texto base */
+    font-size: 16px;                /* Tamaño raíz: 1rem = 16px */
+    font-weight: 400;
+    color: var(--blanco);
+    background-color: var(--negro);
+    line-height: 1.75;              /* Espaciado generoso entre líneas */
 }
 
 
-/* =============================================
-   CONTENEDOR CENTRAL
-   ============================================= */
-header, nav, main, footer {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 20px 24px;
+/* ============================================================
+   HEADER — cabecera del portfolio
+   Fondo verde neón, texto negro: igual al hero del blog M_ICA
+   ============================================================ */
+.header-portfolio {
+    background-color: var(--verde); /* Fondo verde neón sólido */
+    color: var(--negro);            /* Texto negro sobre verde */
+    text-align: center;
+    padding: 70px 20px 60px;
+    position: relative;             /* Necesario para posicionar el logo absolute */
+}
+
+/* Barra negra vertical izquierda — detalle gráfico */
+.header-portfolio::before {
+    content: '';           /* Elemento decorativo generado con CSS puro */
+    position: absolute;    /* Se posiciona respecto al header (que tiene position:relative) */
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: var(--negro);
+}
+
+/* Logo M_ICA — esquina superior izquierda (como en el blog) */
+.header-portfolio .logo {
+    position: absolute;    /* Sacado del flujo normal para posicionarse libremente */
+    top: 16px;
+    left: 22px;
+    font-family: var(--fuente-t);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--negro);
+}
+
+/* Título principal del header */
+.header-portfolio .nombre {
+    font-family: var(--fuente-t);
+    font-size: 4rem;       /* Grande y bold: estética editorial */
+    font-weight: 700;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: var(--negro);
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+/* Subtítulo bajo el nombre */
+.header-portfolio .subtitulo-header {
+    font-family: var(--fuente-p);
+    font-size: 0.82rem;
+    font-weight: 300;      /* Light: contraste con el bold del título */
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.50); /* Negro al 50%: suave sobre verde */
 }
 
 
-/* =============================================
-   H1 — título principal
-   ============================================= */
+/* ============================================================
+   NAVEGACIÓN — barra de links entre páginas
+   ============================================================ */
+.nav-portfolio {
+    background-color: var(--negro-card);
+    border-bottom: 1px solid var(--negro-borde);
+    padding: 14px 0;
+    text-align: center;
+}
+
+/* Cada link de navegación */
+.nav-portfolio a {
+    font-family: var(--fuente-t);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blanco-50);
+    text-decoration: none;
+    padding: 8px 20px;
+    margin: 0 4px;
+    border-radius: var(--radio);
+    transition: color 0.2s ease, background-color 0.2s ease;
+    /* transition: anima el cambio de estado suavemente */
+}
+
+.nav-portfolio a:hover {
+    color: var(--negro);
+    background-color: var(--verde);
+}
+
+/* Clase .activo → resalta la página actual en la nav */
+.nav-portfolio a.activo {
+    color: var(--verde);
+    border-bottom: 2px solid var(--verde);
+}
+
+
+/* ============================================================
+   CONTENEDOR PRINCIPAL — .contenedor
+   80% de ancho · centrado con margin auto · padding 15px
+   fondo oscuro · borde sutil · margen de 20px
+   ============================================================ */
+.contenedor {
+    width: 80%;
+    margin: 20px auto;          /* auto centra horizontalmente el div */
+    padding: 15px;              /* Margen interno de 15px */
+    background-color: var(--negro-card);
+    border: 1px solid var(--negro-borde);
+    border-radius: var(--radio);
+    box-shadow: 0 0 24px rgba(107, 240, 107, 0.08); /* Halo verde muy suave */
+}
+
+
+/* ============================================================
+   TIPOGRAFÍA — H1, H2, párrafo
+   ============================================================ */
+
+/* H1 — título principal */
 h1 {
-  font-family: "Roboto Slab", serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 2.2rem;
-  color: #1a1a1a;
-  margin-bottom: 4px;
-  line-height: 1.2;
+    font-family: var(--fuente-t);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--verde);         /* Verde neón para títulos */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+    position: relative;          /* Para el pseudo-elemento ::after */
 }
 
+/* Línea blanca decorativa debajo del h1 */
+h1::after {
+    content: '';           /* Elemento generado con CSS, no existe en el HTML */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--blanco);
+}
 
-/* =============================================
-   H2 — subtítulo
-   ============================================= */
+/* H2 — subtítulo de sección */
 h2 {
-  font-family: "Roboto Slab", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 1.3rem;
-  color: #fd5002;
-  margin-top: 36px;
-  margin-bottom: 8px;
+    font-family: var(--fuente-t);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--blanco);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 28px;
+    margin-bottom: 10px;
 }
 
-
-/* =============================================
-   P — párrafos
-   ============================================= */
+/* Párrafo — Lato, peso 500 (medium) */
 p {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  color: #3a3b38;
-  margin-bottom: 20px;
-  max-width: 65ch;
+    font-family: var(--fuente-p);
+    font-size: 1rem;
+    font-weight: 500;            /* Medium: mejor legibilidad en modo oscuro */
+    color: var(--blanco-50);     /* Blanco al 55% — suave, no tan duro como el blanco puro */
+    line-height: 1.75;
+    margin-bottom: 14px;
+}
+
+/* <strong> negrita */
+strong {
+    color: var(--blanco);        /* Blanco puro para resaltar sobre blanco-50 */
+    font-weight: 700;
+}
+
+/* <em> itálica */
+em {
+    color: var(--verde);
+    font-style: italic;
+}
+
+/* <code> texto de código */
+code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.88rem;
+    color: var(--verde);
+    background-color: var(--verde-suave);
+    padding: 2px 6px;
+    border-radius: 3px;
 }
 
 
-/* =============================================
-   NAV — barra de navegación
-   ============================================= */
-nav {
-  border-bottom: 1px solid #e0e0e0;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  margin-bottom: 0;
+/* ============================================================
+   ESTILOS DE ENLACES — los 4 estados en orden correcto
+   Regla: LoVe HAte (Link → Visited → Hover → Active)
+   ============================================================ */
+
+/* Enlace no visitado */
+a:link {
+    color: var(--verde);
+    text-decoration: none;       /* Sin subrayado: estilo moderno */
+    font-weight: 500;
+    transition: color 0.2s ease, background-color 0.2s ease;
+    /* transition: hace la animación del cambio de estado suave y gradual */
+    border-radius: 2px;
 }
 
-nav a {
-  margin-right: 24px;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-
-/* =============================================
-   ENLACES — 4 estados
-   ============================================= */
-a {
-  color: #3a3b38;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.15s;
-}
-
+/* Enlace ya visitado */
 a:visited {
-  color: #888888;
+    color: var(--verde-dark);    /* Verde más oscuro: ya recorrido */
 }
 
+/* Mouse sobre el enlace */
 a:hover {
-  font-style: italic;
-  color: #3a3b38;
-  border-bottom: 1px solid #3a3b38;
+    color: var(--negro);         /* Texto negro */
+    background-color: var(--verde); /* Fondo verde neón: highlight de diseñadora */
+    padding: 1px 5px;
 }
 
+/* Momento exacto del clic */
 a:active {
-  color: #fd5002;
+    color: var(--negro);
+    background-color: var(--verde-dark); /* Verde más oscuro en el clic */
+}
+
+/* Resetear los estados en la navegación para que no hereden padding extra */
+.nav-portfolio a:link,
+.nav-portfolio a:visited {
+    color: var(--blanco-50);
+    background-color: transparent;
+    padding: 8px 20px;          /* Sobrescribe el padding del a:hover global */
 }
 
 
-/* =============================================
-   IMAGEN RESPONSIVE
-   ============================================= */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 28px 0 8px 0;
+/* ============================================================
+   DIV DESTACADO — .bloque-destacado
+   Fondo: verde muy suave (rgba)
+   Borde: 1px sutil + borde-left 3px verde puro
+   ::before genera etiqueta "▸ NOTA" con CSS puro
+   ============================================================ */
+.bloque-destacado {
+    background-color: var(--verde-suave);
+    /* rgba(107, 240, 107, 0.08): verde al 8% de opacidad.
+       rgba = Red, Green, Blue, Alpha (0=transparente, 1=sólido) */
+    border: 1px solid rgba(107, 240, 107, 0.20);
+    border-left: 3px solid var(--verde); /* Borde izquierdo sólido, más grueso */
+    border-radius: 0 var(--radio) var(--radio) 0;
+    /* 0 en esquinas izquierdas (donde está el borde grueso),
+       var(--radio) = 4px en esquinas derechas */
+    padding: 18px 22px;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    position: relative;
 }
 
-/* Texto de atribución de imagen */
-.atribucion {
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  font-size: 0.78rem;
-  color: #aaaaaa;
-  margin-top: 0;
-  margin-bottom: 32px;
+/* Etiqueta generada por CSS — no está en el HTML */
+.bloque-destacado::before {
+    content: '▸ NOTA';
+    display: block;
+    font-family: var(--fuente-t);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--verde);
+    margin-bottom: 10px;
 }
 
-
-/* =============================================
-   VIDEO RESPONSIVE (iframe YouTube)
-   Usar dentro de un div class="video-wrapper"
-   ============================================= */
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* proporción 16:9 */
-  height: 0;
-  overflow: hidden;
-  margin: 28px 0;
+.bloque-destacado h2 {
+    color: var(--verde);
+    font-size: 0.95rem;
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
-.video-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-
-/* =============================================
-   DIV DESTACADO
-   ============================================= */
-.destacado {
-  background-color: #fdf4ef;
-  border-left: 3px solid #fd5002;
-  padding: 18px 22px;
-  margin: 32px 0;
-}
-
-.destacado p {
-  margin: 0;
-  font-size: 1rem;
-  font-style: italic;
-  color: #3a3b38;
+.bloque-destacado p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.95rem;
+    margin-bottom: 0;
 }
 
 
-/* =============================================
-   FOOTER
-   ============================================= */
-footer {
-  border-top: 1px solid #e0e0e0;
-  margin-top: 48px;
-  padding-top: 20px;
+/* ============================================================
+   SEPARADOR VISUAL <hr>
+   ============================================================ */
+hr {
+    border: none;
+    border-top: 1px solid var(--negro-borde);
+    margin: 28px 0;
 }
 
-footer p {
-  font-size: 0.82rem;
-  color: #aaaaaa;
+
+/* ============================================================
+   FOOTER — pie de página
+   ============================================================ */
+.footer-portfolio {
+    background-color: var(--negro);
+    color: var(--blanco-50);
+    text-align: center;
+    padding: 22px 20px;
+    font-family: var(--fuente-t);
+    font-size: 0.72rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-top: 2px solid var(--verde); /* Línea verde en el borde superior */
+    margin-top: 40px;
+}
+
+.footer-portfolio a:link,
+.footer-portfolio a:visited {
+    color: var(--verde);
+    background-color: transparent;
+    padding: 0;
+}
+
+.footer-portfolio a:hover {
+    background-color: var(--verde);
+    color: var(--negro);
+    padding: 1px 5px;
 }
