@@ -1,280 +1,196 @@
-/* ==========================================================================
-   RESET GENERAL Y VARIABLES DE DISEÑO (Neumorfismo + WordPress Style)
-   ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* =============================================
+   IMPORTAR TIPOGRAFÍAS DESDE GOOGLE FONTS
+   Roboto Slab → h1 y h2
+   Lato → párrafos y texto general
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
-:root {
-    --bg-color: #f0f0f3;
-    --text-main: #2d3748;
-    --text-muted: #718096;
-    --accent: #2b6cb0; /* Azul sobrio para links seleccionados */
-    
-    /* Sombras Neumórficas Clásicas (Relieve Extruido Sutil) */
-    --nm-outer-shadow: 9px 9px 16px #bebebf, -9px -9px 16px #ffffff;
-    --nm-inner-shadow: inset 4px 4px 8px #bebebf, inset -4px -4px 8px #ffffff;
-}
 
+/* =============================================
+   BODY — base general
+   ============================================= */
 body {
-    background-color: var(--bg-color);
-    font-family: 'Open Sans', sans-serif;
-    color: var(--text-main);
-    line-height: 1.6;
-    overflow-x: hidden;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #3a3b38;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
-h1, h2, h3 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+
+/* =============================================
+   CONTENEDOR CENTRAL
+   ============================================= */
+header, nav, main, footer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px 24px;
 }
 
-/* ==========================================================================
-   HEADER (Barra Superior Táctil)
-   ========================================================================== */
-.custom-header {
-    background: var(--bg-color);
-    padding: 20px 40px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+
+/* =============================================
+   H1 — título principal
+   ============================================= */
+h1 {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2.2rem;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  line-height: 1.2;
 }
 
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+/* =============================================
+   H2 — subtítulo
+   ============================================= */
+h2 {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.3rem;
+  color: #fd5002;
+  margin-top: 36px;
+  margin-bottom: 8px;
 }
 
-.logo-area {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--text-main);
+
+/* =============================================
+   P — párrafos
+   ============================================= */
+p {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #3a3b38;
+  margin-bottom: 20px;
+  max-width: 65ch;
 }
 
-.site-logo {
-    height: 40px;
-    width: auto;
-    border-radius: 8px;
+
+/* =============================================
+   NAV — barra de navegación
+   ============================================= */
+nav {
+  border-bottom: 1px solid #e0e0e0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 0;
 }
 
-.logo-text {
-    font-family: 'Poppins', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+nav a {
+  margin-right: 24px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.main-nav {
-    display: flex;
-    gap: 25px;
+
+/* =============================================
+   ENLACES — 4 estados
+   ============================================= */
+a {
+  color: #3a3b38;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
 }
 
-.nav-link {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-weight: 600;
-    font-size: 15px;
-    padding: 8px 16px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
+a:visited {
+  color: #888888;
 }
 
-.nav-link:hover, .nav-link.active {
-    color: var(--text-main);
-    box-shadow: var(--nm-inner-shadow);
+a:hover {
+  font-style: italic;
+  color: #3a3b38;
+  border-bottom: 1px solid #3a3b38;
 }
 
-/* ==========================================================================
-   HERO SECTION (Presentación Limpia)
-   ========================================================================== */
-.hero-section {
-    padding: 80px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+a:active {
+  color: #fd5002;
 }
 
-.hero-container {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 50px;
-    align-items: center;
+
+/* =============================================
+   IMAGEN RESPONSIVE
+   ============================================= */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 28px 0 8px 0;
 }
 
-.hero-title {
-    font-size: 42px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: var(--text-main);
+/* Texto de atribución de imagen */
+.atribucion {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 0.78rem;
+  color: #aaaaaa;
+  margin-top: 0;
+  margin-bottom: 32px;
 }
 
-.hero-subtitle {
-    font-size: 18px;
-    color: var(--text-muted);
-    max-width: 550px;
+
+/* =============================================
+   VIDEO RESPONSIVE (iframe YouTube)
+   Usar dentro de un div class="video-wrapper"
+   ============================================= */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* proporción 16:9 */
+  height: 0;
+  overflow: hidden;
+  margin: 28px 0;
 }
 
-.hero-image-wrapper {
-    padding: 15px;
-    border-radius: 20px;
-    box-shadow: var(--nm-outer-shadow);
-    background: var(--bg-color);
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-.hero-img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    display: block;
+
+/* =============================================
+   DIV DESTACADO
+   ============================================= */
+.destacado {
+  background-color: #fdf4ef;
+  border-left: 3px solid #fd5002;
+  padding: 18px 22px;
+  margin: 32px 0;
 }
 
-/* ==========================================================================
-   SECCIÓN DE PROYECTOS (Composición Modular Inspirada en WordPress)
-   ========================================================================== */
-.portfolio-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 40px 100px 40px;
+.destacado p {
+  margin: 0;
+  font-size: 1rem;
+  font-style: italic;
+  color: #3a3b38;
 }
 
-.section-title-wrapper {
-    margin-bottom: 50px;
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+  border-top: 1px solid #e0e0e0;
+  margin-top: 48px;
+  padding-top: 20px;
 }
 
-.section-title {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.title-underline {
-    width: 60px;
-    height: 4px;
-    background-color: var(--text-main);
-    border-radius: 2px;
-}
-
-/* Grilla Adaptativa */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 35px;
-}
-
-/* Tarjetas de Proyectos Neumórficas */
-.project-card {
-    background: var(--bg-color);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: var(--nm-outer-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-}
-
-.card-image-box {
-    width: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: var(--nm-inner-shadow);
-    background: #e2e8f0;
-    aspect-ratio: 4 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.project-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.card-info {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.card-tag {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.card-title {
-    font-size: 19px;
-    margin-bottom: 12px;
-    color: var(--text-main);
-}
-
-.card-excerpt {
-    font-size: 14px;
-    color: var(--text-muted);
-}
-
-/* ==========================================================================
-   FOOTER (Pie de Página Minimalista)
-   ========================================================================== */
-.custom-footer {
-    background: var(--bg-color);
-    text-align: center;
-    padding: 40px 20px;
-    box-shadow: inset 0 4px 10px rgba(0,0,0,0.02);
-    font-size: 14px;
-    color: var(--text-muted);
-}
-
-.footer-link {
-    color: var(--text-main);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.footer-link:hover {
-    text-decoration: underline;
-}
-
-/* ==========================================================================
-   DISEÑO RESPONSIVO (Media Queries)
-   ========================================================================== */
-@media (max-width: 992px) {
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-    .hero-subtitle {
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 576px) {
-    .custom-header {
-        padding: 15px 20px;
-    }
-    .header-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .hero-title {
-        font-size: 32px;
-    }
-    .portfolio-main {
-        padding: 20px;
-    }
+footer p {
+  font-size: 0.82rem;
+  color: #aaaaaa;
 }
