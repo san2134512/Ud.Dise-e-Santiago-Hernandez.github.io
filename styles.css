@@ -7,7 +7,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap');
 
-
 /* ============================================================
    VARIABLES — :root
    ============================================================ */
@@ -30,7 +29,6 @@
     --interlineado: 1.75;
 }
 
-
 /* ============================================================
    RESET
    ============================================================ */
@@ -39,7 +37,6 @@
     margin: 0;
     padding: 0;
 }
-
 
 /* ============================================================
    BODY
@@ -52,7 +49,6 @@ body {
     background-color: var(--negro);
     line-height: var(--interlineado);
 }
-
 
 /* ============================================================
    HEADER — hero verde neón, logo esquina, título centrado
@@ -111,7 +107,6 @@ body {
     color: rgba(0, 0, 0, 0.50);
 }
 
-
 /* ============================================================
    NAVEGACIÓN
    ============================================================ */
@@ -151,7 +146,6 @@ body {
     border-bottom: 3px solid var(--verde);
 }
 
-
 /* ============================================================
    MAIN — contenedor principal
    ============================================================ */
@@ -161,14 +155,12 @@ main {
     padding: 48px 24px 64px;
 }
 
-
 /* ============================================================
    SECCIONES
    ============================================================ */
 section {
     margin-bottom: 56px;  /* Espacio generoso entre secciones */
 }
-
 
 /* ============================================================
    TIPOGRAFÍA — H1, H2, P, A
@@ -238,7 +230,6 @@ p em {
     font-style: italic;
 }
 
-
 /* ============================================================
    ESTILOS DE ENLACES — 4 estados (LoVe HAte)
    ============================================================ */
@@ -277,7 +268,6 @@ a:active {
     color: var(--verde);
 }
 
-
 /* ============================================================
    TARJETA DE REFERENTE
    ============================================================ */
@@ -304,7 +294,6 @@ a:active {
 .referente p:last-child {
     margin-bottom: 0;
 }
-
 
 /* ============================================================
    BLOQUE IMAGEN — placeholder para fotos propias
@@ -358,7 +347,6 @@ a:active {
     text-align: center;
 }
 
-
 /* ============================================================
    BLOQUE VIDEO / AUDIO
    ============================================================ */
@@ -399,7 +387,6 @@ a:active {
     font-weight: 400;
 }
 
-
 /* ============================================================
    BLOQUE LICENCIA CC
    ============================================================ */
@@ -422,7 +409,6 @@ a:active {
     font-weight: 400;
 }
 
-
 /* ============================================================
    HR — separador visual
    ============================================================ */
@@ -431,7 +417,6 @@ hr {
     border-top: 1px solid var(--negro-3);
     margin: 40px 0;
 }
-
 
 /* ============================================================
    FOOTER
@@ -462,320 +447,6 @@ hr {
 }
 
 .site-footer a:hover {
-    background-color: var(--verde);
-    color: var(--negro);
-    padding: 1px 5px;
-}
-
-/* ============================================================
-   HOJA DE ESTILOS EXTERNA — estilos.css
-   Portfolio M_ICA · Paleta: negro #111111 + verde #6bf06b
-   REGLA IMPORTANTE: @import DEBE ser la primera línea del
-   archivo CSS (antes de cualquier regla). Si se pone después
-   de :root{} u otro bloque, el navegador lo ignora y las
-   fuentes no cargan. Por eso va aquí, al principio.
-   ============================================================ */
-
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;600;700&family=Lato:wght@300;400;500;700&display=swap');
-/* @import trae las fuentes desde internet.
-   Josefin Sans: para títulos (300 light, 600 semibold, 700 bold)
-   Lato: para párrafos (300 light, 400 regular, 500 medium, 700 bold) */
-
-
-/* ------------------------------------------------------------
-   VARIABLES CSS — :root
-   :root apunta al elemento raíz (la etiqueta <html>).
-   Las variables se declaran con -- y se usan con var(--nombre).
-   Cambiar un valor aquí lo actualiza en TODA la hoja.
-   ------------------------------------------------------------ */
-:root {
-    --negro:        #111111;                    /* Fondo principal */
-    --negro-card:   #1c1c1c;                    /* Fondo de tarjetas y div contenedor */
-    --negro-borde:  #2e2e2e;                    /* Bordes sutiles sobre negro */
-    --verde:        #6bf06b;                    /* Verde neón — acento del blog M_ICA */
-    --verde-dark:   #4fd44f;                    /* Verde más oscuro para hover */
-    --verde-suave:  rgba(107, 240, 107, 0.08);  /* Verde casi transparente */
-    --blanco:       #ffffff;                    /* Texto principal */
-    --blanco-50:    rgba(255, 255, 255, 0.55);  /* Texto suave / secundario */
-    --fuente-t:     'Josefin Sans', sans-serif; /* Fuente para títulos */
-    --fuente-p:     'Lato', sans-serif;         /* Fuente para párrafos */
-    --radio:        4px;                        /* Redondeo de bordes */
-}
-
-
-/* ------------------------------------------------------------
-   RESET — elimina márgenes y paddings del navegador
-   * selecciona TODOS los elementos de la página.
-   box-sizing: border-box hace que padding y borde se
-   incluyan dentro del ancho declarado (evita desbordamientos).
-   ------------------------------------------------------------ */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-
-/* ------------------------------------------------------------
-   BODY — base de la página
-   Fondo negro, texto blanco: "dark mode" o modo oscuro.
-   ------------------------------------------------------------ */
-body {
-    font-family: var(--fuente-p);   /* Lato para todo el texto base */
-    font-size: 16px;                /* Tamaño raíz: 1rem = 16px */
-    font-weight: 400;
-    color: var(--blanco);
-    background-color: var(--negro);
-    line-height: 1.75;              /* Espaciado generoso entre líneas */
-}
-
-
-/* ============================================================
-   HEADER — cabecera del portfolio
-   Fondo verde neón, texto negro: igual al hero del blog M_ICA
-   ============================================================ */
-.header-portfolio {
-    background-color: var(--verde); /* Fondo verde neón sólido */
-    color: var(--negro);            /* Texto negro sobre verde */
-    text-align: center;
-    padding: 70px 20px 60px;
-    position: relative;             /* Necesario para posicionar el logo absolute */
-}
-
-/* Barra negra vertical izquierda — detalle gráfico */
-.header-portfolio::before {
-    content: '';           /* Elemento decorativo generado con CSS puro */
-    position: absolute;    /* Se posiciona respecto al header (que tiene position:relative) */
-    top: 0;
-    left: 0;
-    width: 5px;
-    height: 100%;
-    background-color: var(--negro);
-}
-
-/* Logo M_ICA — esquina superior izquierda (como en el blog) */
-.header-portfolio .logo {
-    position: absolute;    /* Sacado del flujo normal para posicionarse libremente */
-    top: 16px;
-    left: 22px;
-    font-family: var(--fuente-t);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--negro);
-}
-
-/* Título principal del header */
-.header-portfolio .nombre {
-    font-family: var(--fuente-t);
-    font-size: 4rem;       /* Grande y bold: estética editorial */
-    font-weight: 700;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    color: var(--negro);
-    line-height: 1;
-    margin-bottom: 12px;
-}
-
-/* Subtítulo bajo el nombre */
-.header-portfolio .subtitulo-header {
-    font-family: var(--fuente-p);
-    font-size: 0.82rem;
-    font-weight: 300;      /* Light: contraste con el bold del título */
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.50); /* Negro al 50%: suave sobre verde */
-}
-
-
-/* ============================================================
-   NAVEGACIÓN — barra de links entre páginas
-   ============================================================ */
-.nav-portfolio {
-    background-color: var(--negro-card);
-    border-bottom: 1px solid var(--negro-borde);
-    padding: 14px 0;
-    text-align: center;
-}
-
-/* Cada link de navegación */
-.nav-portfolio a {
-    font-family: var(--fuente-t);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--blanco-50);
-    text-decoration: none;
-    padding: 8px 20px;
-    margin: 0 4px;
-    border-radius: var(--radio);
-    transition: color 0.2s ease, background-color 0.2s ease;
-    /* transition: anima el cambio de estado suavemente */
-}
-
-.nav-portfolio a:hover {
-    color: var(--negro);
-    background-color: var(--verde);
-}
-
-/* Clase .activo → resalta la página actual en la nav */
-.nav-portfolio a.activo {
-    color: var(--verde);
-    border-bottom: 2px solid var(--verde);
-}
-
-
-/* ============================================================
-   CONTENEDOR PRINCIPAL — .contenedor
-   80% de ancho · centrado con margin auto · padding 15px
-   fondo oscuro · borde sutil · margen de 20px
-   ============================================================ */
-.contenedor {
-    width: 80%;
-    margin: 20px auto;          /* auto centra horizontalmente el div */
-    padding: 15px;              /* Margen interno de 15px */
-    background-color: var(--negro-card);
-    border: 1px solid var(--negro-borde);
-    border-radius: var(--radio);
-    box-shadow: 0 0 24px rgba(107, 240, 107, 0.08); /* Halo verde muy suave */
-}
-
-/* <strong> negrita */
-strong {
-    color: var(--blanco);       
-    font-weight: 700;
-}
-
-/* <em> itálica */
-em {
-    color: var(--verde);
-    font-style: italic;
-}
-
-/* <code> texto de código */
-code {
-    font-family: 'Courier New', monospace;
-    font-size: 0.88rem;
-    color: var(--verde);
-    background-color: var(--verde-suave);
-    padding: 2px 6px;
-    border-radius: 3px;
-}
-
-/* Enlace no visitado */
-a:link {
-    color: var(--verde);
-    text-decoration: none;       /* Sin subrayado: estilo moderno */
-    font-weight: 500;
-    transition: color 0.2s ease, background-color 0.2s ease;
-    /* transition: hace la animación del cambio de estado suave y gradual */
-    border-radius: 2px;
-}
-
-/* Enlace ya visitado */
-a:visited {
-    color: var(--verde-dark);    /* Verde más oscuro: ya recorrido */
-}
-
-/* Mouse sobre el enlace */
-a:hover {
-    color: var(--negro);         /* Texto negro */
-    background-color: var(--verde); /* Fondo verde neón: highlight de diseñadora */
-    padding: 1px 5px;
-}
-
-/* Momento exacto del clic */
-a:active {
-    color: var(--negro);
-    background-color: var(--verde-dark); /* Verde más oscuro en el clic */
-}
-
-/* Resetear los estados en la navegación para que no hereden padding extra */
-.nav-portfolio a:link,
-.nav-portfolio a:visited {
-    color: var(--blanco-50);
-    background-color: transparent;
-    padding: 8px 20px;          /* Sobrescribe el padding del a:hover global */
-}
-
-.bloque-destacado {
-    background-color: var(--verde-suave);
-    /* rgba(107, 240, 107, 0.08): verde al 8% de opacidad.
-       rgba = Red, Green, Blue, Alpha (0=transparente, 1=sólido) */
-    border: 1px solid rgba(107, 240, 107, 0.20);
-    border-left: 3px solid var(--verde); /* Borde izquierdo sólido, más grueso */
-    border-radius: 0 var(--radio) var(--radio) 0;
-    /* 0 en esquinas izquierdas (donde está el borde grueso),
-       var(--radio) = 4px en esquinas derechas */
-    padding: 18px 22px;
-    margin-top: 24px;
-    margin-bottom: 10px;
-    position: relative;
-}
-
-/* Etiqueta generada por CSS — no está en el HTML */
-.bloque-destacado::before {
-    content: '▸ NOTA';
-    display: block;
-    font-family: var(--fuente-t);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--verde);
-    margin-bottom: 10px;
-}
-
-.bloque-destacado h2 {
-    color: var(--verde);
-    font-size: 0.95rem;
-    margin-top: 0;
-    margin-bottom: 8px;
-}
-
-.bloque-destacado p {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 0.95rem;
-    margin-bottom: 0;
-}
-
-
-/* ============================================================
-   SEPARADOR VISUAL <hr>
-   ============================================================ */
-hr {
-    border: none;
-    border-top: 1px solid var(--negro-borde);
-    margin: 28px 0;
-}
-
-
-/* ============================================================
-   FOOTER — pie de página
-   ============================================================ */
-.footer-portfolio {
-    background-color: var(--negro);
-    color: var(--blanco-50);
-    text-align: center;
-    padding: 22px 20px;
-    font-family: var(--fuente-t);
-    font-size: 0.72rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    border-top: 2px solid var(--verde); /* Línea verde en el borde superior */
-    margin-top: 40px;
-}
-
-.footer-portfolio a:link,
-.footer-portfolio a:visited {
-    color: var(--verde);
-    background-color: transparent;
-    padding: 0;
-}
-
-.footer-portfolio a:hover {
     background-color: var(--verde);
     color: var(--negro);
     padding: 1px 5px;
