@@ -1,45 +1,39 @@
 /* ============================================================
-   HOJA DE ESTILOS EXTERNA — estilos.css
-   Portfolio M_ICA · Paleta: negro #111111 + verde #6bf06b
-   REGLA IMPORTANTE: @import DEBE ser la primera línea del
-   archivo CSS (antes de cualquier regla). Si se pone después
-   de :root{} u otro bloque, el navegador lo ignora y las
-   fuentes no cargan. Por eso va aquí, al principio.
+   styles.css — Portfolio M_ICA · Micaela Schindler
+   Paleta: Verde neón #6BF06B + Negro #111111 + Blanco #FFFFFF
+   Tipografías: Josefin Sans (títulos) + Lato (cuerpo)
+   @import SIEMPRE como primera instrucción del CSS.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;600;700&family=Lato:wght@300;400;500;700&display=swap');
-/* @import trae las fuentes desde internet.
-   Josefin Sans: para títulos (300 light, 600 semibold, 700 bold)
-   Lato: para párrafos (300 light, 400 regular, 500 medium, 700 bold) */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap');
 
 
-/* ------------------------------------------------------------
-   VARIABLES CSS — :root
-   :root apunta al elemento raíz (la etiqueta <html>).
-   Las variables se declaran con -- y se usan con var(--nombre).
-   Cambiar un valor aquí lo actualiza en TODA la hoja.
-   ------------------------------------------------------------ */
+/* ============================================================
+   VARIABLES — :root
+   ============================================================ */
 :root {
-    --negro:        #111111;                    /* Fondo principal */
-    --negro-card:   #1c1c1c;                    /* Fondo de tarjetas y div contenedor */
-    --negro-borde:  #2e2e2e;                    /* Bordes sutiles sobre negro */
-    --verde:        #6bf06b;                    /* Verde neón — acento del blog M_ICA */
-    --verde-dark:   #4fd44f;                    /* Verde más oscuro para hover */
-    --verde-suave:  rgba(107, 240, 107, 0.08);  /* Verde casi transparente */
-    --blanco:       #ffffff;                    /* Texto principal */
-    --blanco-50:    rgba(255, 255, 255, 0.55);  /* Texto suave / secundario */
-    --fuente-t:     'Josefin Sans', sans-serif; /* Fuente para títulos */
-    --fuente-p:     'Lato', sans-serif;         /* Fuente para párrafos */
-    --radio:        4px;                        /* Redondeo de bordes */
+    --verde:       #6bf06b;
+    --verde-dark:  #4dd44d;
+    --negro:       #111111;
+    --negro-2:     #1c1c1c;
+    --negro-3:     #2a2a2a;
+    --blanco:      #ffffff;
+    --gris:        rgba(255, 255, 255, 0.65);
+    --fuente-t:    'Josefin Sans', sans-serif;
+    --fuente-p:    'Lato', sans-serif;
+
+    /* Texto optimizado para lectura en pantalla:
+       max 70 caracteres por línea, tamaño mínimo 17px,
+       interlineado 1.75 para dark mode */
+    --lectura-max:  70ch;
+    --tamano-base:  17px;
+    --interlineado: 1.75;
 }
 
 
-/* ------------------------------------------------------------
-   RESET — elimina márgenes y paddings del navegador
-   * selecciona TODOS los elementos de la página.
-   box-sizing: border-box hace que padding y borde se
-   incluyan dentro del ancho declarado (evita desbordamientos).
-   ------------------------------------------------------------ */
+/* ============================================================
+   RESET
+   ============================================================ */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -47,330 +41,427 @@
 }
 
 
-/* ------------------------------------------------------------
-   BODY — base de la página
-   Fondo negro, texto blanco: "dark mode" o modo oscuro.
-   ------------------------------------------------------------ */
+/* ============================================================
+   BODY
+   ============================================================ */
 body {
-    font-family: var(--fuente-p);   /* Lato para todo el texto base */
-    font-size: 16px;                /* Tamaño raíz: 1rem = 16px */
+    font-family: var(--fuente-p);
+    font-size: var(--tamano-base);  /* 17px: mínimo recomendado para pantalla */
     font-weight: 400;
     color: var(--blanco);
     background-color: var(--negro);
-    line-height: 1.75;              /* Espaciado generoso entre líneas */
+    line-height: var(--interlineado);
 }
 
 
 /* ============================================================
-   HEADER — cabecera del portfolio
-   Fondo verde neón, texto negro: igual al hero del blog M_ICA
+   HEADER — hero verde neón, logo esquina, título centrado
+   Reproduce el estilo del blog M_ICA
    ============================================================ */
-.header-portfolio {
-    background-color: var(--verde); /* Fondo verde neón sólido */
-    color: var(--negro);            /* Texto negro sobre verde */
+.site-header {
+    background-color: var(--verde);
+    padding: 72px 24px 56px;
+    position: relative;
     text-align: center;
-    padding: 70px 20px 60px;
-    position: relative;             /* Necesario para posicionar el logo absolute */
 }
 
-/* Barra negra vertical izquierda — detalle gráfico */
-.header-portfolio::before {
-    content: '';           /* Elemento decorativo generado con CSS puro */
-    position: absolute;    /* Se posiciona respecto al header (que tiene position:relative) */
-    top: 0;
-    left: 0;
+/* Barra negra vertical izquierda */
+.site-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
     width: 5px;
     height: 100%;
     background-color: var(--negro);
 }
 
-/* Logo M_ICA — esquina superior izquierda (como en el blog) */
-.header-portfolio .logo {
-    position: absolute;    /* Sacado del flujo normal para posicionarse libremente */
-    top: 16px;
-    left: 22px;
+/* Logo M_ICA — esquina superior izquierda (igual que en el blog) */
+.logo {
+    position: absolute;
+    top: 18px;
+    left: 24px;
     font-family: var(--fuente-t);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--negro);
 }
 
-/* Título principal del header */
-.header-portfolio .nombre {
+/* Título del header */
+.site-header .titulo-header {
     font-family: var(--fuente-t);
-    font-size: 4rem;       /* Grande y bold: estética editorial */
+    font-size: clamp(2.4rem, 6vw, 4.8rem);
+    /* clamp: crece entre 2.4rem (mobile) y 4.8rem (desktop) */
     font-weight: 700;
-    letter-spacing: 8px;
-    text-transform: uppercase;
     color: var(--negro);
-    line-height: 1;
-    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    line-height: 1.1;
+    margin-bottom: 10px;
 }
 
-/* Subtítulo bajo el nombre */
-.header-portfolio .subtitulo-header {
+/* Subtítulo del header */
+.site-header .subtitulo-header {
     font-family: var(--fuente-p);
-    font-size: 0.82rem;
-    font-weight: 300;      /* Light: contraste con el bold del título */
+    font-size: 0.8rem;
+    font-weight: 300;
     letter-spacing: 5px;
     text-transform: uppercase;
-    color: rgba(0, 0, 0, 0.50); /* Negro al 50%: suave sobre verde */
+    color: rgba(0, 0, 0, 0.50);
 }
 
 
 /* ============================================================
-   NAVEGACIÓN — barra de links entre páginas
+   NAVEGACIÓN
    ============================================================ */
-.nav-portfolio {
-    background-color: var(--negro-card);
-    border-bottom: 1px solid var(--negro-borde);
-    padding: 14px 0;
+.nav-principal {
+    background-color: var(--negro-2);
+    border-bottom: 1px solid var(--negro-3);
+    padding: 0;
     text-align: center;
+    display: flex;             /* Distribuye los links en fila */
+    justify-content: center;   /* Centra el grupo de links */
+    gap: 4px;                  /* Separación entre links */
+    flex-wrap: wrap;           /* Salto de línea en pantallas chicas */
 }
 
-/* Cada link de navegación */
-.nav-portfolio a {
+.nav-principal a {
     font-family: var(--fuente-t);
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--blanco-50);
+    color: var(--gris);
     text-decoration: none;
-    padding: 8px 20px;
-    margin: 0 4px;
-    border-radius: var(--radio);
-    transition: color 0.2s ease, background-color 0.2s ease;
-    /* transition: anima el cambio de estado suavemente */
+    padding: 14px 22px;
+    display: inline-block;
+    border-bottom: 3px solid transparent; /* Reserva espacio para la línea activa */
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.nav-portfolio a:hover {
-    color: var(--negro);
-    background-color: var(--verde);
-}
-
-/* Clase .activo → resalta la página actual en la nav */
-.nav-portfolio a.activo {
+.nav-principal a:hover {
     color: var(--verde);
-    border-bottom: 2px solid var(--verde);
+    border-bottom: 3px solid var(--verde);
+}
+
+/* Página activa resaltada en verde */
+.nav-principal a.activo {
+    color: var(--verde);
+    border-bottom: 3px solid var(--verde);
 }
 
 
 /* ============================================================
-   CONTENEDOR PRINCIPAL — .contenedor
-   80% de ancho · centrado con margin auto · padding 15px
-   fondo oscuro · borde sutil · margen de 20px
+   MAIN — contenedor principal
    ============================================================ */
-.contenedor {
-    width: 80%;
-    margin: 20px auto;          /* auto centra horizontalmente el div */
-    padding: 15px;              /* Margen interno de 15px */
-    background-color: var(--negro-card);
-    border: 1px solid var(--negro-borde);
-    border-radius: var(--radio);
-    box-shadow: 0 0 24px rgba(107, 240, 107, 0.08); /* Halo verde muy suave */
+main {
+    max-width: 900px;  /* Ancho máximo del contenido */
+    margin: 0 auto;    /* Centra el main en la página */
+    padding: 48px 24px 64px;
 }
 
 
 /* ============================================================
-   TIPOGRAFÍA — H1, H2, párrafo
+   SECCIONES
+   ============================================================ */
+section {
+    margin-bottom: 56px;  /* Espacio generoso entre secciones */
+}
+
+
+/* ============================================================
+   TIPOGRAFÍA — H1, H2, P, A
+
+   OPTIMIZACIÓN PARA LECTURA EN PANTALLA:
+   - max-width: 70ch limita la línea a ~70 caracteres
+   - font-size 17px base, interlineado 1.75
+   - Texto alineado a la izquierda (nunca justificado en pantalla)
+   - Párrafos cortos separados entre sí
    ============================================================ */
 
-/* H1 — título principal */
 h1 {
     font-family: var(--fuente-t);
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: 700;
-    color: var(--verde);         /* Verde neón para títulos */
-    letter-spacing: 2px;
+    color: var(--verde);
     text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 20px;
     padding-bottom: 16px;
-    margin-bottom: 8px;
-    position: relative;          /* Para el pseudo-elemento ::after */
+    position: relative;
+    max-width: var(--lectura-max);
 }
 
-/* Línea blanca decorativa debajo del h1 */
+/* Línea blanca decorativa bajo h1 */
 h1::after {
-    content: '';           /* Elemento generado con CSS, no existe en el HTML */
+    content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
+    bottom: 0; left: 0;
+    width: 44px;
     height: 2px;
     background-color: var(--blanco);
 }
 
-/* H2 — subtítulo de sección */
 h2 {
     font-family: var(--fuente-t);
-    font-size: 1.05rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    color: var(--blanco);
-    letter-spacing: 2px;
+    color: var(--verde);
     text-transform: uppercase;
-    margin-top: 28px;
-    margin-bottom: 10px;
+    letter-spacing: 3px;
+    margin-top: 36px;
+    margin-bottom: 12px;
 }
 
-/* Párrafo — Lato, peso 500 (medium) */
+/* Párrafo optimizado para lectura en pantalla */
 p {
     font-family: var(--fuente-p);
-    font-size: 1rem;
-    font-weight: 500;            /* Medium: mejor legibilidad en modo oscuro */
-    color: var(--blanco-50);     /* Blanco al 55% — suave, no tan duro como el blanco puro */
-    line-height: 1.75;
-    margin-bottom: 14px;
+    font-size: var(--tamano-base);  /* 17px */
+    font-weight: 400;
+    color: var(--gris);             /* Blanco al 65%: menos duro que blanco puro */
+    line-height: var(--interlineado); /* 1.75: esencial en dark mode */
+    max-width: var(--lectura-max);  /* Máximo 70 caracteres por línea */
+    margin-bottom: 20px;            /* Espacio entre párrafos: ayuda a la lectura */
+    text-align: left;               /* Nunca justificado: crea ríos en pantalla */
 }
 
-/* <strong> negrita */
-strong {
-    color: var(--blanco);        /* Blanco puro para resaltar sobre blanco-50 */
+/* Énfasis dentro de párrafos */
+p strong {
+    color: var(--blanco);
     font-weight: 700;
 }
 
-/* <em> itálica */
-em {
+p em {
     color: var(--verde);
     font-style: italic;
 }
 
-/* <code> texto de código */
-code {
-    font-family: 'Courier New', monospace;
-    font-size: 0.88rem;
-    color: var(--verde);
-    background-color: var(--verde-suave);
-    padding: 2px 6px;
-    border-radius: 3px;
-}
-
 
 /* ============================================================
-   ESTILOS DE ENLACES — los 4 estados en orden correcto
-   Regla: LoVe HAte (Link → Visited → Hover → Active)
+   ESTILOS DE ENLACES — 4 estados (LoVe HAte)
    ============================================================ */
-
-/* Enlace no visitado */
 a:link {
     color: var(--verde);
-    text-decoration: none;       /* Sin subrayado: estilo moderno */
-    font-weight: 500;
-    transition: color 0.2s ease, background-color 0.2s ease;
-    /* transition: hace la animación del cambio de estado suave y gradual */
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
     border-radius: 2px;
 }
 
-/* Enlace ya visitado */
 a:visited {
-    color: var(--verde-dark);    /* Verde más oscuro: ya recorrido */
+    color: var(--verde-dark);
 }
 
-/* Mouse sobre el enlace */
 a:hover {
-    color: var(--negro);         /* Texto negro */
-    background-color: var(--verde); /* Fondo verde neón: highlight de diseñadora */
+    color: var(--negro);
+    background-color: var(--verde);
+    border-bottom: 1px solid transparent;
     padding: 1px 5px;
 }
 
-/* Momento exacto del clic */
 a:active {
     color: var(--negro);
-    background-color: var(--verde-dark); /* Verde más oscuro en el clic */
+    background-color: var(--verde-dark);
+    padding: 1px 5px;
 }
 
-/* Resetear los estados en la navegación para que no hereden padding extra */
-.nav-portfolio a:link,
-.nav-portfolio a:visited {
-    color: var(--blanco-50);
+/* Resetear el hover en la nav para que no mueva el layout */
+.nav-principal a:hover,
+.nav-principal a:active {
+    padding: 14px 22px;
     background-color: transparent;
-    padding: 8px 20px;          /* Sobrescribe el padding del a:hover global */
+    border-bottom: 3px solid var(--verde);
+    color: var(--verde);
 }
 
 
 /* ============================================================
-   DIV DESTACADO — .bloque-destacado
-   Fondo: verde muy suave (rgba)
-   Borde: 1px sutil + borde-left 3px verde puro
-   ::before genera etiqueta "▸ NOTA" con CSS puro
+   TARJETA DE REFERENTE
    ============================================================ */
-.bloque-destacado {
-    background-color: var(--verde-suave);
-    /* rgba(107, 240, 107, 0.08): verde al 8% de opacidad.
-       rgba = Red, Green, Blue, Alpha (0=transparente, 1=sólido) */
-    border: 1px solid rgba(107, 240, 107, 0.20);
-    border-left: 3px solid var(--verde); /* Borde izquierdo sólido, más grueso */
-    border-radius: 0 var(--radio) var(--radio) 0;
-    /* 0 en esquinas izquierdas (donde está el borde grueso),
-       var(--radio) = 4px en esquinas derechas */
-    padding: 18px 22px;
-    margin-top: 24px;
-    margin-bottom: 10px;
-    position: relative;
+.referente {
+    background-color: var(--negro-2);
+    border: 1px solid var(--negro-3);
+    border-left: 3px solid var(--verde);
+    border-radius: 0 4px 4px 0;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    max-width: var(--lectura-max);
 }
 
-/* Etiqueta generada por CSS — no está en el HTML */
-.bloque-destacado::before {
-    content: '▸ NOTA';
-    display: block;
-    font-family: var(--fuente-t);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--verde);
-    margin-bottom: 10px;
-}
-
-.bloque-destacado h2 {
-    color: var(--verde);
-    font-size: 0.95rem;
+.referente h2 {
     margin-top: 0;
-    margin-bottom: 8px;
+    font-size: 0.8rem;
 }
 
-.bloque-destacado p {
-    color: rgba(255, 255, 255, 0.75);
+.referente p {
     font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.referente p:last-child {
     margin-bottom: 0;
 }
 
 
 /* ============================================================
-   SEPARADOR VISUAL <hr>
+   BLOQUE IMAGEN — placeholder para fotos propias
    ============================================================ */
-hr {
-    border: none;
-    border-top: 1px solid var(--negro-borde);
-    margin: 28px 0;
+.bloque-imagen {
+    background-color: var(--negro-2);
+    border: 2px dashed var(--negro-3);
+    border-radius: 4px;
+    padding: 0;
+    margin-bottom: 16px;
+    overflow: hidden;  /* Las imágenes no desborden el borde redondeado */
+    max-width: 100%;
+}
+
+/* La imagen dentro del bloque ocupa todo el ancho */
+.bloque-imagen img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* La imagen recorta en vez de deformarse */
+}
+
+/* Pie de imagen / caption */
+.bloque-imagen figcaption {
+    font-family: var(--fuente-p);
+    font-size: 0.78rem;
+    color: var(--gris);
+    padding: 10px 16px;
+    border-top: 1px solid var(--negro-3);
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* Placeholder cuando aún no hay imagen */
+.placeholder-imagen {
+    background-color: var(--negro-2);
+    border: 2px dashed var(--negro-3);
+    border-radius: 4px;
+    padding: 48px 24px;
+    text-align: center;
+    margin-bottom: 8px;
+    max-width: 100%;
+}
+
+.placeholder-imagen p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.30);
+    letter-spacing: 1px;
+    margin: 0;
+    max-width: none;
+    text-align: center;
 }
 
 
 /* ============================================================
-   FOOTER — pie de página
+   BLOQUE VIDEO / AUDIO
    ============================================================ */
-.footer-portfolio {
+.bloque-video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Mantiene proporción 16:9 */
+    height: 0;
+    overflow: hidden;
+    background-color: var(--negro-2);
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.bloque-video iframe,
+.bloque-video video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Atribución de autoría */
+.atribucion {
+    font-family: var(--fuente-p);
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.40);
+    margin-top: 8px;
+    margin-bottom: 32px;
+    font-style: italic;
+    max-width: var(--lectura-max);
+}
+
+.atribucion a:link,
+.atribucion a:visited {
+    color: rgba(107, 240, 107, 0.70);
+    font-weight: 400;
+}
+
+
+/* ============================================================
+   BLOQUE LICENCIA CC
+   ============================================================ */
+.licencia {
+    border-top: 1px solid var(--negro-3);
+    padding-top: 28px;
+    margin-top: 48px;
+}
+
+.licencia p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.40);
+    max-width: var(--lectura-max);
+    margin-bottom: 10px;
+}
+
+.licencia a:link,
+.licencia a:visited {
+    color: rgba(107, 240, 107, 0.60);
+    font-weight: 400;
+}
+
+
+/* ============================================================
+   HR — separador visual
+   ============================================================ */
+hr {
+    border: none;
+    border-top: 1px solid var(--negro-3);
+    margin: 40px 0;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
     background-color: var(--negro);
-    color: var(--blanco-50);
+    border-top: 2px solid var(--verde);
+    padding: 28px 24px;
     text-align: center;
-    padding: 22px 20px;
+}
+
+.site-footer p {
     font-family: var(--fuente-t);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    border-top: 2px solid var(--verde); /* Línea verde en el borde superior */
-    margin-top: 40px;
+    color: rgba(255,255,255,0.35);
+    margin: 0 auto;
+    max-width: none;
+    text-align: center;
 }
 
-.footer-portfolio a:link,
-.footer-portfolio a:visited {
+.site-footer a:link,
+.site-footer a:visited {
     color: var(--verde);
-    background-color: transparent;
-    padding: 0;
+    font-weight: 400;
+    border-bottom: none;
 }
 
-.footer-portfolio a:hover {
+.site-footer a:hover {
     background-color: var(--verde);
     color: var(--negro);
     padding: 1px 5px;
