@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacto — Micaela Schindler, diseñadora gráfica. Córdoba, Argentina.">
+    <meta name="author" content="Micaela Schindler">
+
+    <title>M_ICA — Contacto</title>
+
+    <!-- Link al CSS externo (funciona cuando los archivos están en la misma carpeta) -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- =========================================================
+         ESTILOS EMBEBIDOS
+         Se incluyen aquí para que la página funcione de forma
+         autónoma en el visualizador, sin necesitar styles.css.
+         Cuando se usa con la carpeta completa, styles.css tiene
+         prioridad por estar declarado antes en el <head>.
+         ========================================================= -->
+    <style>
+
+        /* @import: carga las fuentes de Google Fonts.
+           Debe ir primero dentro de <style>, igual que en un .css externo */
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+        /* --------------------------------------------------------
+           VARIABLES — colores y tipografías del blog M_ICA
+           -------------------------------------------------------- */
+        :root {
+            --verde:      #6bf06b;
+            --verde-dark: #4dd44d;
+            --negro:      #111111;
+            --negro-2:    #1c1c1c;
+            --negro-3:    #2a2a2a;
+            --blanco:     #ffffff;
+            --gris:       rgba(255, 255, 255, 0.65);
+            --fuente-t:   'Josefin Sans', sans-serif;
+            --fuente-p:   'Lato', sans-serif;
+
+            /* Variables de legibilidad para pantalla */
+            --max-lectura: 68ch;    /* Máximo de caracteres por línea */
+            --size-base:   17px;    /* Tamaño mínimo para lectura cómoda */
+            --interlineado: 1.75;   /* Espacio entre líneas */
+        }
+
+        /* --------------------------------------------------------
+           RESET
+           -------------------------------------------------------- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --------------------------------------------------------
+           BODY
+           -------------------------------------------------------- */
+        body {
+            font-family: var(--fuente-p);
+            font-size: var(--size-base);
+            color: var(--blanco);
+            background-color: var(--negro);
+            line-height: var(--interlineado);
+        }
+
+        /* --------------------------------------------------------
+           HEADER — hero verde neón, logo M_ICA en esquina
+           -------------------------------------------------------- */
+        .site-header {
+            background-color: var(--verde);
+            padding: 72px 24px 56px;
+            position: relative;
+            text-align: center;
+        }
+
+        /* Barra negra decorativa izquierda */
+        .site-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--negro);
+        }
+
+        /* Logo M_ICA — esquina superior izquierda */
+        .logo {
+            position: absolute;
+            top: 18px;
+            left: 24px;
+            font-family: var(--fuente-t);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--negro);
+        }
+
+        .titulo-header {
+            font-family: var(--fuente-t);
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 700;
+            color: var(--negro);
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .subtitulo-header {
+            font-family: var(--fuente-p);
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(0, 0, 0, 0.50);
+        }
+
+        /* --------------------------------------------------------
+           NAVEGACIÓN
+           -------------------------------------------------------- */
+        .nav-principal {
+            background-color: var(--negro-2);
+            border-bottom: 1px solid var(--negro-3);
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .nav-principal a {
+            font-family: var(--fuente-t);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gris);
+            text-decoration: none;
+            padding: 14px 22px;
+            display: inline-block;
+            border-bottom: 3px solid transparent;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .nav-principal a:hover {
+            color: var(--verde);
+            border-bottom: 3px solid var(--verde);
+        }
+
+        .nav-principal a.activo {
+            color: var(--verde);
+            border-bottom: 3px solid var(--verde);
+        }
+
+        /* --------------------------------------------------------
+           MAIN — contenedor de contenido
+           -------------------------------------------------------- */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+
+        section {
+            margin-bottom: 52px;
+        }
+
+        /* --------------------------------------------------------
+           TIPOGRAFÍA — H1, H2, P, A
+           Optimizadas para lectura en pantalla:
+           · 17px base · 68ch por línea · interlineado 1.75
+           · Texto alineado a la izquierda (nunca justificado)
+           -------------------------------------------------------- */
+        h1 {
+            font-family: var(--fuente-t);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--verde);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            position: relative;
+            max-width: var(--max-lectura);
+        }
+
+        /* Línea blanca decorativa bajo cada h1 */
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 44px;
+            height: 2px;
+            background-color: var(--blanco);
+        }
+
+        h2 {
+            font-family: var(--fuente-t);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--verde);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 32px;
+            margin-bottom: 10px;
+        }
+
+        /* Párrafo optimizado para pantalla:
+           · Máximo 68 caracteres por línea (var --max-lectura)
+           · Interlineado 1.75 — más generoso en fondo oscuro
+           · Izquierda: evita los "ríos" del texto justificado
+           · 20px entre párrafos: separa ideas claramente */
+        p {
+            font-family: var(--fuente-p);
+            font-size: var(--size-base);
+            font-weight: 400;
+            color: var(--gris);
+            line-height: var(--interlineado);
+            max-width: var(--max-lectura);
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        p strong {
+            color: var(--blanco);
+            font-weight: 700;
+        }
+
+        p em {
+            color: var(--verde);
+            font-style: italic;
+        }
+
+        /* --------------------------------------------------------
+           ESTILOS DE ENLACES — 4 estados: LoVe HAte
+           -------------------------------------------------------- */
+        a:link {
+            color: var(--verde);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+        }
+
+        a:visited {
+            color: var(--verde-dark);
+        }
+
+        a:hover {
+            color: var(--negro);
+            background-color: var(--verde);
+            padding: 1px 5px;
+        }
+
+        a:active {
+            color: var(--negro);
+            background-color: var(--verde-dark);
+            padding: 1px 5px;
+        }
+
+        /* Reset hover en navegación (no desplace el texto) */
+        .nav-principal a:hover,
+        .nav-principal a:active {
+            padding: 14px 22px;
+            background-color: transparent;
+            color: var(--verde);
+        }
+
+        /* --------------------------------------------------------
+           DIV DESTACADO — bloque de texto optimizado
+           Borde izquierdo verde, fondo verde muy transparente,
+           texto con todas las reglas de lectura en pantalla
+           aplicadas explícitamente.
+           -------------------------------------------------------- */
+        .bloque-destacado {
+            background-color: rgba(107, 240, 107, 0.06);
+            /* rgba: verde al 6% de opacidad — apenas visible,
+               aporta contexto sin romper la lectura */
+            border: 1px solid rgba(107, 240, 107, 0.18);
+            border-left: 4px solid var(--verde);
+            /* Borde izquierdo grueso: patrón visual de "bloque especial" */
+            border-radius: 0 6px 6px 0;
+            padding: 28px 32px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            max-width: var(--max-lectura);
+            position: relative;
+        }
+
+        /* Etiqueta generada con CSS puro — no ocupa lugar en el HTML */
+        .bloque-destacado::before {
+            content: '▸ LECTURA EN PANTALLA';
+            display: block;
+            font-family: var(--fuente-t);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--verde);
+            margin-bottom: 14px;
+            opacity: 0.8;
+        }
+
+        /* Título dentro del bloque */
+        .bloque-destacado h2 {
+            color: var(--blanco);
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            text-transform: none;
+        }
+
+        /* Párrafo dentro del bloque:
+           Aplica explícitamente TODAS las reglas de optimización
+           para lectura en pantalla. */
+        .bloque-destacado p {
+            font-size: 17px;           /* Tamaño mínimo: 16–18px en pantalla */
+            line-height: 1.75;         /* Interlineado generoso: esencial en dark mode */
+            max-width: 62ch;           /* Máximo 62 caracteres: rango óptimo 45–75ch */
+            text-align: left;          /* Nunca justificado: crea "ríos" en pantalla */
+            color: rgba(255,255,255,0.80); /* Blanco al 80%: menos duro que blanco puro */
+            margin-bottom: 16px;       /* Espacio entre párrafos: separa ideas */
+            font-weight: 400;          /* Regular: más cómodo que bold en lectura larga */
+        }
+
+        .bloque-destacado p:last-child {
+            margin-bottom: 0;
+        }
+
+        .bloque-destacado p strong {
+            color: var(--verde);       /* Énfasis en verde: coherente con la paleta */
+        }
+
+        /* --------------------------------------------------------
+           HR — separador visual
+           -------------------------------------------------------- */
+        hr {
+            border: none;
+            border-top: 1px solid var(--negro-3);
+            margin: 40px 0;
+        }
+
+        /* --------------------------------------------------------
+           FOOTER
+           -------------------------------------------------------- */
+        .site-footer {
+            background-color: var(--negro);
+            border-top: 2px solid var(--verde);
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        .site-footer p {
+            font-family: var(--fuente-t);
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.35);
+            margin: 0 auto;
+            max-width: none;
+            text-align: center;
+        }
+
+        .site-footer a:link,
+        .site-footer a:visited {
+            color: var(--verde);
+            font-weight: 400;
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .site-footer a:hover {
+            background-color: var(--verde);
+            color: var(--negro);
+            padding: 1px 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+    <header class="site-header">
+        <span class="logo">M_ICA</span>
+        <p class="titulo-header">Contacto</p>
+        <p class="subtitulo-header">Hablemos de diseño</p>
+    </header>
+
+
+    <!-- =========================================================
+         NAVEGACIÓN — "Contacto" marcado como activo
+         ========================================================= -->
+    <nav class="nav-principal" aria-label="Navegación principal">
+        <a href="index.html">Presentación</a>
+        <a href="segundapagina.html">Obras audiovisuales</a>
+        <a href="tercera.html" class="activo">Contacto</a>
+    </nav>
+
+
+    <!-- =========================================================
+         CONTENIDO PRINCIPAL
+         ========================================================= -->
+    <main>
+
+
+        <!-- =====================================================
+             DIV DESTACADO — texto optimizado para pantalla
+             Punto 2 del enunciado: texto estructurado con h2 y p,
+             con todas las reglas de legibilidad digital aplicadas.
+             ===================================================== -->
+        <div class="bloque-destacado">
+
+            <h2>¿Qué hace que un texto sea fácil de leer en pantalla?</h2>
+
+            <p>
+                Diseñar para pantalla es distinto que diseñar para papel.
+                En pantalla, los ojos se cansan más rápido porque
+                <strong>la luz viene hacia vos</strong>, no rebota desde la página.
+                Por eso cada decisión tipográfica importa.
+            </p>
+
+            <p>
+                Un tamaño de letra de <strong>al menos 16–17 px</strong> evita
+                el esfuerzo visual. Un interlineado de <strong>1.6 a 1.8</strong>
+                da aire entre líneas y permite que el ojo encuentre
+                fácilmente el inicio de la siguiente.
+            </p>
+
+            <p>
+                Las líneas largas cansan: el ancho ideal es de
+                <strong>45 a 75 caracteres</strong>. Más de eso,
+                y el ojo pierde el hilo al saltar de línea.
+                El texto justificado genera espacios irregulares
+                llamados <em>«ríos»</em> — alinear a la izquierda
+                resuelve ese problema.
+            </p>
+
+            <p>
+                El contraste entre el texto y el fondo es clave.
+                En modo oscuro, el blanco puro sobre negro puede
+                producir un efecto de <em>«halos»</em>.
+                Usar un blanco al <strong>75–80% de opacidad</strong>
+                reduce esa tensión y hace la lectura más cómoda.
+            </p>
+
+        </div><!-- fin .bloque-destacado -->
+
+
+        <hr>
+
+
+        <!-- =====================================================
+             SECCIÓN — CONTACTO
+             ===================================================== -->
+        <section aria-labelledby="titulo-contacto">
+
+            <h1 id="titulo-contacto">Contacto</h1>
+
+            <p>
+                ¿Tenés un proyecto de diseño gráfico, identidad visual
+                o producción audiovisual en mente?
+                Podés escribirme por cualquiera de estos canales.
+            </p>
+
+            <h2>Correo electrónico</h2>
+            <p>
+                <a href="mailto:micaelaschindler@upc.edu.ar">
+                    micaelaschindler@upc.edu.ar
+                </a>
+            </p>
+
+            <h2>Blog de la materia</h2>
+            <p>
+                <a href="https://mischindlerdisenografico.wordpress.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    mischindlerdisenografico.wordpress.com
+                </a>
+            </p>
+
+        </section>
+
+
+        <hr>
+
+
+        <!-- =====================================================
+             SECCIÓN — REDES Y PRESENCIA DIGITAL
+             ===================================================== -->
+        <section aria-labelledby="titulo-redes">
+
+            <h1 id="titulo-redes">Presencia digital</h1>
+
+            <h2>Instagram</h2>
+            <p>
+                <a href="https://www.instagram.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    @[tu usuario]
+                </a>
+                <!-- Reemplazá con: https://www.instagram.com/tu-usuario -->
+            </p>
+
+            <h2>Behance</h2>
+            <p>
+                <a href="https://www.behance.net/"
+                   target="_blank" rel="noopener noreferrer">
+                    Behance — [tu usuario]
+                </a>
+                <!-- Reemplazá con: https://www.behance.net/tu-usuario -->
+                — Portfolio con proyectos completos.
+            </p>
+
+        </section>
+
+
+        <hr>
+
+
+        <!-- =====================================================
+             SECCIÓN — DISPONIBILIDAD
+             ===================================================== -->
+        <section aria-labelledby="titulo-disponibilidad">
+
+            <h1 id="titulo-disponibilidad">Disponibilidad</h1>
+
+            <p>
+                Estoy disponible para proyectos
+                <strong>freelance</strong> en diseño gráfico:
+                identidad visual, diseño editorial,
+                piezas para redes sociales y producción audiovisual.
+            </p>
+
+            <p>
+                Escribime a
+                <a href="mailto:micaelaschindler@upc.edu.ar">
+                    micaelaschindler@upc.edu.ar
+                </a>
+                contando tu proyecto: qué necesitás diseñar,
+                en qué plazo y si tenés referencias visuales.
+            </p>
+
+        </section>
+
+
+        <hr>
+
+
+        <!-- =====================================================
+             NAVEGACIÓN DE RETORNO — ida y vuelta entre páginas
+             ===================================================== -->
+        <section>
+            <h2>Seguir navegando</h2>
+            <p>
+                ← <a href="index.html">Volver a Presentación</a>
+                &nbsp;·&nbsp;
+                ← <a href="segundapagina.html">Volver a Obras audiovisuales</a>
+            </p>
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+    <footer class="site-footer">
+        <p>
+            &copy; 2024–2026 Micaela Schindler &nbsp;·&nbsp;
+            <a href="https://mischindlerdisenografico.wordpress.com/"
+               target="_blank" rel="noopener noreferrer">Blog M_ICA</a>
+            &nbsp;·&nbsp;
+            <a href="mailto:micaelaschindler@upc.edu.ar">micaelaschindler@upc.edu.ar</a>
+            &nbsp;·&nbsp;
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+               target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>
+        </p>
+    </footer>
+
+</body>
+</html>
