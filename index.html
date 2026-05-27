@@ -1,135 +1,346 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agustina Hernández Correa — Diseñadora Gráfica</title>
 
-    <!-- Hoja de estilos externa -->
+    <!-- Descripción para buscadores (SEO) -->
+    <meta name="description" content="Portfolio de Micaela Schindler — Diseñadora gráfica egresada de la Tecnicatura en Diseño Gráfico, Córdoba, Argentina.">
+    <meta name="author" content="Micaela Schindler">
+
+    <title>M_ICA — Portfolio · Presentación</title>
+
+    <!-- Hoja de estilos externa: controla el diseño de las 3 páginas -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Tipografía Roboto Slab para títulos -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-
-    <!-- Tipografía Lato para párrafos -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- ENCABEZADO DEL SITIO -->
-    <header>
-        <!-- Nombre como título principal -->
-        <h1>Agustina Hernández Correa</h1>
-
-        <!-- Subtítulo con rol profesional -->
-        <p>Diseñadora Gráfica · UPC Córdoba</p>
+    <!-- =========================================================
+         HEADER
+         Fondo verde neón + logo M_ICA en esquina (estilo blog)
+         ========================================================= -->
+    <header class="site-header">
+        <span class="logo">M_ICA</span>
+        <p class="titulo-header">Micaela Schindler</p>
+        <p class="subtitulo-header">Diseñadora Gráfica — Portfolio</p>
     </header>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <nav>
-        <!-- Enlace a la página de inicio -->
-        <a href="index.html">Inicio</a>
 
-        <!-- Enlace a la segunda página con el video -->
-        <a href="segundapagina.html">Audiovisual</a>
-
-        <!-- Enlace externo al blog personal -->
-        <a href="https://agudisena.wordpress.com/" target="_blank">Blog</a>
+    <!-- =========================================================
+         NAVEGACIÓN INTERNA
+         Permite ir de una página a otra y volver.
+         class="activo" resalta la página actual.
+         ========================================================= -->
+    <nav class="nav-principal" aria-label="Navegación principal">
+        <!-- aria-label: accesibilidad — describe el nav para lectores de pantalla -->
+        <a href="index.html" class="activo">Presentación</a>
+        <a href="segundapagina.html">Obras audiovisuales</a>
+        <a href="tercera.html">Contacto</a>
     </nav>
 
-    <!-- CONTENIDO PRINCIPAL -->
+
+    <!-- =========================================================
+         CONTENIDO PRINCIPAL
+         <main> indica al navegador y buscadores dónde está
+         el contenido central de la página.
+         ========================================================= -->
     <main>
 
-        <!-- SECCIÓN: PRESENTACIÓN PERSONAL -->
-        <section>
-            <h2>Sobre mí</h2>
 
-            <!-- Párrafo de presentación -->
+        <!-- =====================================================
+             SECCIÓN 1 — PRESENTACIÓN Y TRAYECTORIA
+             ===================================================== -->
+        <section aria-labelledby="titulo-presentacion">
+            <!-- aria-labelledby vincula la sección con su título -->
+
+            <h1 id="titulo-presentacion">Presentación</h1>
+
             <p>
-                Soy diseñadora gráfica egresada de la Tecnicatura Universitaria en Diseño Gráfico
-                de la Universidad Provincial de Córdoba (UPC). Actualmente curso la Licenciatura
-                en Diseño en la misma institución, en el marco del ciclo de complementación
-                curricular (CCC).
+                Soy <strong>Micaela Schindler</strong>, diseñadora gráfica
+                egresada de la Tecnicatura en Diseño Gráfico.
+                Vivo en Córdoba, Argentina, y trabajo en el cruce entre
+                la comunicación visual, la tipografía y el diseño digital.
             </p>
 
-            <!-- Párrafo sobre enfoque profesional -->
             <p>
-                Mi práctica profesional se orienta hacia el diseño con impacto social,
-                explorando la comunicación visual como herramienta de transformación cultural
-                y construcción de identidad.
+                Estoy aprendiendo desarrollo web para poder traducir mis
+                ideas de diseño directamente en entornos digitales.
+                Este portfolio reúne mi formación, mis referentes y
+                algunas obras propias.
+            </p>
+
+            <h2>Trayectoria de formación</h2>
+
+            <p>
+                Mi formación combina el diseño gráfico tradicional con
+                herramientas digitales y audiovisuales:
+            </p>
+
+            <p>
+                <strong>Tecnicatura en Diseño Gráfico</strong> —
+                egresada. Diseño editorial, identidad visual,
+                tipografía y comunicación visual.
+            </p>
+
+            <p>
+                <strong>Laboratorio Digital</strong> —
+                HTML, CSS, optimización de imágenes y textos para pantalla,
+                producción de contenido web.
+            </p>
+
+            <p>
+                <strong>Materia Audiovisual</strong> —
+                producción de video publicitario, motion graphics
+                y edición en Adobe Premiere Pro.
             </p>
         </section>
 
-        <!-- SECCIÓN: ÁREAS DE INTERÉS -->
-        <section>
-            <h2>Áreas de interés</h2>
 
-            <!-- Párrafo sobre intereses -->
+        <hr>
+
+
+        <!-- =====================================================
+             SECCIÓN 2 — INTERESES EN DISEÑO
+             ===================================================== -->
+        <section aria-labelledby="titulo-intereses">
+
+            <h1 id="titulo-intereses">Intereses</h1>
+
             <p>
-                Me intereso especialmente por el diseño social, la investigación proyectual,
-                el branding y la construcción de identidades visuales. También trabajo y
-                reflexiono sobre UX/UI, tipografía y diseño editorial como disciplinas
-                que articulan forma, contenido y experiencia del usuario.
+                Me interesan los bordes donde se cruzan disciplinas:
+                tipografía experimental, diseño de sistemas visuales,
+                cartel y diseño web. Me atrae trabajar con paletas
+                limitadas y formas geométricas claras.
             </p>
 
-            <!-- Bloque destacado con síntesis -->
-            <div class="destacado">
+            <p>
+                En el ámbito digital, me interesa el <strong>diseño de
+                identidad para marcas</strong> y la <strong>producción
+                audiovisual con estética de diseño gráfico</strong>.
+                El proyecto Ace Strider, realizado en 2024 para
+                la materia Audiovisual, sintetiza estos dos mundos.
+            </p>
+
+            <p>
+                También sigo de cerca el trabajo de estudios y
+                diseñadores que cruzan el diseño impreso con lo digital,
+                y que publican su proceso de manera abierta.
+            </p>
+        </section>
+
+
+        <hr>
+
+
+        <!-- =====================================================
+             SECCIÓN 3 — REFERENTES Y OBRAS
+             Obras con licencia abierta (dominio público / CC)
+             que pueden publicarse en un portfolio sin restricciones.
+             ===================================================== -->
+        <section aria-labelledby="titulo-referentes">
+
+            <h1 id="titulo-referentes">Referentes</h1>
+
+            <p>
+                Las obras citadas a continuación pertenecen al
+                <strong>dominio público</strong> o tienen licencia
+                <strong>Creative Commons</strong>, lo que permite
+                reproducirlas con atribución en un portfolio académico.
+            </p>
+
+
+            <!-- Tarjeta referente 1 -->
+            <div class="referente">
+                <h2>El Lissitzky — Constructivismo ruso</h2>
                 <p>
-                    "El diseño no es solo forma. Es una decisión cultural, política y ética
-                    sobre cómo queremos comunicar y habitar el mundo."
+                    Lazar Markovich Lissitzky (1890–1941) fue uno de los
+                    diseñadores más influyentes del siglo XX. Sus composiciones
+                    combinan geometría, tipografía y color rojo y negro
+                    en carteles y libros que marcaron el diseño moderno.
+                </p>
+                <p>
+                    Obra recomendada: <em>«Beat the Whites with the Red Wedge»</em>
+                    (1919). Dominio público. Disponible en
+                    <a href="https://commons.wikimedia.org/wiki/File:El_Lissitzky_-_Beat_the_Whites_with_the_Red_Wedge_(1919).jpg
+                       target="_blank" rel="noopener noreferrer">
+                        Wikimedia Commons
+                    </a>.
+                    <!-- rel="noopener noreferrer": seguridad al abrir links en nueva pestaña -->
                 </p>
             </div>
+
+
+            <!-- Tarjeta referente 2 -->
+            <div class="referente">
+                <h2>Bauhaus — Walter Gropius / Herbert Bayer</h2>
+                <p>
+                    La escuela Bauhaus (Alemania, 1919–1933) definió los
+                    fundamentos del diseño moderno: unidad entre arte y
+                    artesanía, funcionalidad, tipografía como elemento visual.
+                    Herbert Bayer desarrolló la tipografía <em>Universal</em>
+                    basada en formas geométricas elementales.
+                </p>
+                <p>
+                    Las obras de la Bauhaus anteriores a 1928 son dominio
+                    público en Argentina. Imágenes disponibles en
+                    <a href="https://commons.wikimedia.org/wiki/Category:Bauhaus
+                       target="_blank" rel="noopener noreferrer">
+                        Wikimedia Commons — Bauhaus
+                    </a>.
+                </p>
+            </div>
+
         </section>
 
-        <!-- SECCIÓN: REFERENTES -->
-        <section>
-            <h2>Referentes</h2>
 
-            <!-- Párrafo sobre referentes -->
+        <hr>
+
+
+        <!-- =====================================================
+             SECCIÓN 4 — IMÁGENES
+             Placeholder: aquí agregás tus fotos de proyectos propios
+             o imágenes de Wikimedia Commons con atribución.
+             ===================================================== -->
+        <section aria-labelledby="titulo-imagenes">
+
+            <h1 id="titulo-imagenes">Obras de Commons Wikimedia</h1>
+
             <p>
-                Entre los autores y referentes que guían mi mirada sobre el diseño se encuentran
-                <strong>Paula Scher</strong>, por su trabajo en diseño tipográfico y cultural;
-                <strong>Bruno Munari</strong>, por su visión experimental y lúdica del diseño;
-                y <strong>Ronald Shakespear</strong>, referente argentino del diseño de
-                señalética y comunicación pública.
+                Las imágenes de esta sección corresponden a imagenes obtenidas, y luego optimizadas, de Wikimedia Commons.
             </p>
 
-            <!-- Párrafo sobre referentes adicionales -->
-            <p>
-                También me nutro del pensamiento de <strong>Carl Jung</strong> en relación
-                al simbolismo y los arquetipos como base de la comunicación visual, y de
-                <strong>Rubén Fontana</strong>, maestro argentino de la tipografía y el
-                diseño editorial.
+          
+            </figure>
+
+            <!-- IMAGEN 1 -->
+            <figure class="bloque-imagen">
+                <div class="placeholder-imagen">
+                    <p>
+                        <img src="pintura01.jpg">
+                        <p class="atribucion">
+                    </p>
+                </div>
+                <figcaption>
+                    <strong>Detail of Mulher do chale verde by Cyprien Eugene Boulet</strong> —(1877–1927).
+                </figcaption>
+            </figure>
+            <figure>
+
+            <!-- ATRIBUCIÓN DE RECURSOS
+                 Completá con los datos reales de las imágenes que uses -->
+            <p class="atribucion">
+                Atribución de imágenes:
+                Detail of Mulher do chale verde by Cyprien Eugene Boulet, (1877-1927). 
+                <a href="https://commons.wikimedia.org/wiki/File:Morning,_Interior_-_Luce.jpeg target="_blank">Wikimedia Commons.</a>
+                Licencia: dominio público.
+                <!-- Ejemplo real:
+                El Lissitzky, «Beat the Whites with the Red Wedge», 1919.
+                Fuente: Wikimedia Commons. Dominio público. -->
             </p>
+
+            </figure>
+            <br>
+
+            <!-- IMAGEN 2 -->
+            <figure class="bloque-imagen">
+                <div class="placeholder-imagen">
+                    <p>
+                        <img src="pintura02.jpg">
+                        <p class="atribucion">
+                    </p>
+                </div>
+                <figcaption>
+                    <strong>Morning, Interior by Maximilien Luce</strong> —(1858–1941).
+                </figcaption>
+            </figure>
+            
+            <!-- ATRIBUCIÓN DE RECURSOS
+                 Completá con los datos reales de las imágenes que uses -->
+            <p class="atribucion">
+                Atribución de imágenes:
+                Morning, Interior by Maximilien Luce, (1858–1941).
+                <a href="https://commons.wikimedia.org/wiki/File:Morning,_Interior_-_Luce.jpeg target="_blank">Wikimedia Commons.</a>
+                Licencia: dominio público.
+                <!-- Ejemplo real:
+                El Lissitzky, «Beat the Whites with the Red Wedge», 1919.
+                Fuente: Wikimedia Commons. Dominio público. -->
+            </p>
+
+
         </section>
 
-        <!-- IMAGEN DESDE WIKIMEDIA COMMONS -->
-        <!-- Imagen optimizada con atribución de autoría -->
-        <img
-            src="Vitoria_-_Huertas_de_Olárizu_-_Prunus_domestica_-BT-_01.jpg" alt="Prunus domestica en flor, Huertas de Olárizu, Vitoria">
 
-        <!-- Atribución de la imagen -->
-        <p class="atribucion">
-            Imagen: <em>Prunus domestica</em>, Huertas de Olárizu, Vitoria.
-            Autor: BertoTxo. Fuente:
-            <a href="https://commons.wikimedia.org/wiki/File:Vitoria_-_Huertas_de_Ol%C3%A1rizu_-_Prunus_domestica_-BT-_01.jpg" target="_blank">Wikimedia Commons</a>
-            · Licencia: CC BY-SA 3.0.
-        </p>
+        <hr>
 
-        <!-- ENLACE EXTERNO AL BLOG -->
-        <p>
-            Seguí mi proceso de aprendizaje y trabajo en
-            <a href="https://agudisena.wordpress.com/" target="_blank">agudiseña →</a>
-        </p>
+
+        <!-- =====================================================
+             SECCIÓN 5 — LICENCIA CC
+             Licencia Creative Commons embebida en el HTML.
+             CC BY-NC-SA 4.0 es la más común para portfolios
+             académicos: permite compartir con atribución,
+             sin uso comercial, y con la misma licencia.
+             ===================================================== -->
+        <section class="licencia" aria-labelledby="titulo-licencia">
+
+            <h2 id="titulo-licencia">Licencia de este portfolio</h2>
+
+            <!-- Badge oficial de Creative Commons CC BY-NC-SA 4.0 -->
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+               target="_blank" rel="noopener noreferrer"
+               title="Ver licencia Creative Commons BY-NC-SA 4.0">
+                <!-- Imagen oficial del badge CC (servidor de Creative Commons) -->
+                <img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
+                     alt="Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional"
+                     width="88" height="31"
+                     style="display:block; margin-bottom:12px;">
+            </a>
+
+            <p>
+                Este portfolio está publicado bajo la licencia
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                   target="_blank" rel="noopener noreferrer">
+                    Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional
+                    (CC BY-NC-SA 4.0)
+                </a>.
+            </p>
+
+            <p>
+                Podés compartir y adaptar el contenido siempre que:
+                atribuyas la autoría a Micaela Schindler,
+                no lo uses con fines comerciales,
+                y distribuyas tu versión con la misma licencia.
+            </p>
+
+            <!-- ESPACIO PARA COMPLETAR: si usás obras con otras licencias,
+                 listá aquí cada una con su licencia propia. -->
+            <p>
+                Las imágenes de dominio público y con licencia Creative Commons
+                utilizadas en este sitio están atribuidas en el pie de cada imagen.
+                [Completar con los recursos reales que agregues.]
+            </p>
+
+        </section>
+
 
     </main>
 
-    <!-- PIE DE PÁGINA -->
-    <footer>
-        <p>Agustina Hernández Correa · Laboratorio Digital · UPC 2025</p>
-        <a href="http://parciallaboratoriodigital.github.io/"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Parcial Laboratorio Digital</font></font></a><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> © 2026 por </font></font><a href="https://agudisena.wordpress.com/"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Agustina Hernández Correa</font></font></a><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> está bajo licencia </font></font><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">CC BY-NC-SA 4.0</font></font></a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+    <footer class="site-footer">
+        <p>
+            &copy; 2024–2026 Micaela Schindler &nbsp;·&nbsp;
+            <a href="https://mischindlerdisenografico.wordpress.com/"
+               target="_blank" rel="noopener noreferrer">Blog M_ICA</a>
+            &nbsp;·&nbsp;
+            <a href="mailto:micaelaschindler@upc.edu.ar">micaelaschindler@upc.edu.ar</a>
+            &nbsp;·&nbsp;
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+               target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>
+        </p>
     </footer>
 
 </body>
