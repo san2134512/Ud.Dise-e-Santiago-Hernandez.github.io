@@ -1,102 +1,182 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audiovisual — Agustina Hernández Correa</title>
+    <meta name="description" content="Obras audiovisuales — Portfolio de Micaela Schindler, diseñadora gráfica.">
+    <meta name="author" content="Micaela Schindler">
 
-    <!-- Hoja de estilos externa -->
+    <title>M_ICA — Obras audiovisuales</title>
+
+    <!-- Mismo styles.css que index.html: un solo archivo controla las 3 páginas -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Tipografía Roboto Slab para títulos -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-
-    <!-- Tipografía Lato para párrafos -->
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- ENCABEZADO DEL SITIO -->
-    <header>
-        <!-- Nombre como título principal -->
-        <h1>Agustina Hernández Correa</h1>
-
-        <!-- Subtítulo con rol profesional -->
-        <p>Diseñadora Gráfica · UPC Córdoba</p>
+    <!-- =========================================================
+         HEADER — idéntico en las 3 páginas para coherencia visual
+         ========================================================= -->
+    <header class="site-header">
+        <span class="logo">M_ICA</span>
+        <p class="titulo-header">Obras audiovisuales</p>
+        <p class="subtitulo-header">Video · Audio · Diseño en movimiento</p>
     </header>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <nav>
-        <!-- Enlace de vuelta a la página principal -->
-        <a href="index.html">Inicio</a>
 
-        <!-- Enlace a esta misma página (activo) -->
-        <a href="segundapagina.html">Audiovisual</a>
-
-        <!-- Enlace externo al blog personal -->
-        <a href="https://agudisena.wordpress.com/" target="_blank">Blog</a>
+    <!-- =========================================================
+         NAVEGACIÓN — "Obras audiovisuales" marcado como activo
+         ========================================================= -->
+    <nav class="nav-principal" aria-label="Navegación principal">
+        <a href="index.html">Presentación</a>
+        <a href="segundapagina.html" class="activo">Obras audiovisuales</a>
+        <a href="tercera.html">Contacto</a>
     </nav>
 
-    <!-- CONTENIDO PRINCIPAL -->
+
+    <!-- =========================================================
+         CONTENIDO PRINCIPAL
+         ========================================================= -->
     <main>
 
-        <!-- SECCIÓN: CONTENIDO AUDIOVISUAL -->
-        <section>
+        </section>
 
-            <!-- Subtítulo de la sección -->
-            <h2>Referencia audiovisual</h2>
 
-            <!-- Párrafo introductorio al video -->
-            <p>
-                El diseño gráfico como disciplina se nutre constantemente de referencias
-                visuales, conceptuales y culturales. Este video forma parte del material
-                de referencia que exploro en mi proceso de formación.
-            </p>
+        <hr>
 
-            <!-- VIDEO DE YOUTUBE EMBEBIDO -->
-            <!-- Envuelto en .video-wrapper para hacerlo responsive en 16:9 -->
-            <div class="video-wrapper">
-                <iframe
-                    src="https://www.youtube.com/embed/BqIWJ12sGcs?si=3Zid_TwcO50ci7KE"
-                    title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                </iframe>
+
+        <!-- =====================================================
+             SECCIÓN 2 — VIDEO EXTERNO DE REFERENCIA
+             Video de referencia estética/audiovisual con licencia
+             abierta o embed público de YouTube/Vimeo.
+             ===================================================== -->
+        <section aria-labelledby="titulo-referencia-video">
+
+            <h1 id="titulo-referencia-video">Referencia audiovisual</h1>
+
+
+            <!-- VIDEO EXTERNO DE REFERENCIA
+                 Instrucciones para completar:
+                 1. Elegí un video de YouTube/Vimeo que sea una referencia estética.
+                    Puede ser: un documental de diseño, un showreel, una entrevista
+                    a un/a diseñador/a, un timelapse de proceso creativo.
+                 2. Copiá el código embed y reemplazá el iframe de abajo.
+                 3. Completá el bloque de atribución con autor/a, título, año, plataforma.
+
+                 Sugerencias de contenido open/público en YouTube:
+                 - Documental "Helvetica" (2007) — Gary Hustwit
+                   Fragmentos disponibles en: https://www.youtube.com/watch?v=wkoX0pEwSCw
+                 - TED: "Diseño y destino" — Paula Scher
+                   https://www.youtube.com/watch?v=bY9ADBI3-dM
+                 - "Objectified" (2009) — Gary Hustwit (diseño industrial)
+                   https://www.youtube.com/watch?v=B5gKFEfWQwE
+            -->
+            <div class="bloque-video">
+                <!-- REEMPLAZÁ src="about:blank" con la URL embed de tu video elegido -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=HkWhnYNi0IUxAU1u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
-            <!-- Atribución del video -->
             <p class="atribucion">
-                Simbiología | Conversaciones indisciplinadas | Vinciane Despret y Pablo Méndez | Video embebido desde
-                <a href="https://www.youtube.com/watch?v=BqIWJ12sGcs" target="_blank">YouTube</a>.
-                Todos los derechos pertenecen a sus respectivos autores.
-            </p>
-
-            <!-- Bloque destacado con reflexión -->
-            <div class="destacado">
-                <p>
-                    Las referencias visuales y audiovisuales son parte esencial
-                    del proceso proyectual en diseño. Ver, analizar y contextualizar
-                    es también diseñar.
-                </p>
-            </div>
-
-            <!-- ENLACE DE VUELTA A LA PÁGINA PRINCIPAL -->
-            <p>
-                <a href="index.html">← Volver al inicio</a>
+                <!-- Completá con los datos reales del video que elijas -->
+               Rick Astley, <em>«NEVER GONNA GIVE YOU UP»</em>, 2000.
+                Publicado en Youtube.
+                <a href="https://youtu.be/dQw4w9WgXcQ?si=JR5sHlaq4L1Vq3wl">VIDEO YOUTUBE</a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                </a>
+                <!-- Si el video es CC, indicá: Licencia [CC BY / CC BY-SA / etc.] -->
+                <!-- Si es un embed público de YouTube: el video pertenece a su autor/a original. -->
             </p>
 
         </section>
 
+
+        <hr>
+
+
+        <!-- =====================================================
+             SECCIÓN 3 — REFERENCIA MUSICAL / AUDIO
+             ===================================================== -->
+        <section aria-labelledby="titulo-audio">
+
+            <h1 id="titulo-audio">Preferencias musicales</h1>
+
+            <p>
+                La música acompaña mi proceso de diseño.
+                A continuación, una selección de lo que escucho
+                mientras trabajo.
+            </p>
+
+            <!-- AUDIO / PLAYLIST
+                 Opción A: Embeber desde Spotify (no requiere cuenta)
+                 Copiá el embed desde Spotify → Compartir → Insertar
+                 Ejemplo:
+                 <iframe style="border-radius:12px"
+                     src="https://open.spotify.com/embed/track/ID-DE-PISTA"
+                     width="100%" height="152" frameborder="0"
+                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                     loading="lazy">
+                 </iframe>
+
+                 Opción B: Embeber desde SoundCloud
+                 Ir al track → Compartir → Embed → copiar el iframe
+
+                 Opción C: Embeber desde YouTube Music / YouTube
+                 Una playlist o video musical de tu preferencia.
+            -->
+
+            <!-- REEMPLAZÁ ESTE BLOQUE CON TU EMBED DE AUDIO -->
+            <div style="background-color: #1c1c1c; border: 2px dashed #2a2a2a; border-radius: 4px; padding: 32px 24px; margin-bottom: 12px;">
+                <p style="color: rgba(255,255,255,0.30); font-size: 0.8rem; letter-spacing: 1px; text-align: center; margin: 0; max-width: none;">
+                    [ AUDIO: pegá aquí tu embed de Spotify, SoundCloud o YouTube ]
+                </p>
+            </div>
+
+            <p class="atribucion">
+                <!-- Completá con los datos del audio que uses -->
+                [Artista], <em>«[Nombre de la canción / playlist]»</em>, [año].
+                Publicado en [Spotify / SoundCloud / plataforma].
+                Los derechos musicales corresponden a sus respectivos autores.
+            </p>
+
+        </section>
+
+
+        <hr>
+
+
+        <!-- =====================================================
+             NAVEGACIÓN DE RETORNO — enlace de vuelta al inicio
+             Cumple el punto 10: las páginas pueden navegarse
+             de ida y vuelta.
+             ===================================================== -->
+        <section aria-labelledby="titulo-volver">
+            <h2 id="titulo-volver">Seguir navegando</h2>
+            <p>
+                ← <a href="index.html">Volver a Presentación</a>
+                &nbsp;·&nbsp;
+                <a href="tercera.html">Ir a Contacto →</a>
+            </p>
+        </section>
+
+
     </main>
 
-    <!-- PIE DE PÁGINA -->
-    <footer>
-        <p>Agustina Hernández Correa · Laboratorio Digital · UPC 2025</p>
-        <a href="http://parciallaboratoriodigital.github.io/"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Parcial Laboratorio Digital</font></font></a><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> © 2026 por </font></font><a href="https://agudisena.wordpress.com/"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Agustina Hernández Correa</font></font></a><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;"> está bajo licencia </font></font><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">CC BY-NC-SA 4.0</font></font></a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+
+    <!-- =========================================================
+         FOOTER — idéntico en las 3 páginas
+         ========================================================= -->
+    <footer class="site-footer">
+        <p>
+            &copy; 2024–2026 Micaela Schindler &nbsp;·&nbsp;
+            <a href="https://mischindlerdisenografico.wordpress.com/"
+               target="_blank" rel="noopener noreferrer">Blog M_ICA</a>
+            &nbsp;·&nbsp;
+            <a href="mailto:micaelaschindler@upc.edu.ar">micaelaschindler@upc.edu.ar</a>
+            &nbsp;·&nbsp;
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+               target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a>
+        </p>
     </footer>
 
 </body>
